@@ -1,5 +1,9 @@
 # RunningWordsWeb
 
+<img width="1436" alt="Screenshot 2022-08-02 at 14 26 34" src="https://user-images.githubusercontent.com/7766077/182374281-9d8bf499-d78a-4c20-9372-497f73c37baa.png">
+
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.1.
 
 ## Development server
