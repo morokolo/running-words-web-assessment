@@ -1,0 +1,63 @@
+<div class="row mt-5">
+  <div class="col-12">
+    <h3>Select word type</h3>
+  </div>
+  <div *ngIf="isLoadingWords$ | async" class="col-12">
+    please wait while loading your words...
+  </div>
+  <div class="col-12">
+    <span
+      *ngFor="let item of groupedWordTypes"
+      (click)="filterWordsBy(item)"
+      class="badge rounded-pill text-bg-light mx-2"
+      [ngClass]="{
+        'text-bg-dark': filterStatus === item.type
+      }"
+      >{{ item.type }}</span
+    >
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <p *ngIf="filterStatus === 'ALL'">Select a word below</p>
+    <p *ngIf="filterStatus !== 'ALL'">
+      Select a {{ filterStatus }} from the words below
+    </p>
+  </div>
+</div>
+<div class="row" *ngIf="wordListData && wordListData.length > 0">
+  <div class="col-12">
+    <span
+      *ngFor="
+        let item of wordListData | wordFilterPipe: filterStatus;
+        let i = index
+      "
+      class="badge rounded-pill text-bg-light mx-2"
+      (click)="constructSentence(item)"
+    >
+      {{ item.word_name }}
+      <!-- <span aria-hidden="true">&times;</span> -->
+    </span>
+  </div>
+</div>
+<div class="row mt-5">
+  <div class="col-12">
+    <p>My Message:</p>
+    <div class="alert alert-light" role="alert">
+      <p *ngIf="sentence !== ''">{{ sentence }}</p>
+      <p *ngIf="sentence === ''">
+        Please use the above selections to put together a message for a friend!
+      </p>
+    </div>
+  </div>
+  <div class="col-12">
+    <button
+      type="button"
+      (click)="sendMessage(sentence)"
+      class="btn btn-primary"
+    >
+      Send a message
+    </button>
+  </div>
+</div>

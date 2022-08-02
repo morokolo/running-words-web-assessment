@@ -1,0 +1,14 @@
+.left-container,
+.right-container {
+  min-height: 100vh;
+}
+
+.left-container {
+  background: #ec6367;
+  color: white;
+}
+
+.right-container {
+  background: #fff;
+  color: #333;
+}

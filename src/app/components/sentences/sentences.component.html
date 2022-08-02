@@ -1,0 +1,14 @@
+<div class="row mt-5">
+  <div class="col-12">
+    <h3>Your messages</h3>
+  </div>
+  <div *ngIf="isLoading$ | async" class="col-12">
+    please wait while loading your sentences...
+  </div>
+
+  <div class="col-12">
+    <p *ngFor="let item of listOfSentences$ | async">
+      {{ item.sentence }}
+    </p>
+  </div>
+</div>
